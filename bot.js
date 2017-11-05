@@ -24,15 +24,15 @@ client.on('message', message => {
     }
     if (mentionsBrightBot) {
         clbot.write(message.content, (response) => {
-        message.channel.startTyping();
-        setTimeout(() => {
+            message.channel.startTyping();
+            setTimeout(() => {
             console.log(response.output);
             message.channel.send(response.output).catch(console.error);
             message.channel.stopTyping();
-        },
-    });
-        
+            },
+        });
     }
+        
     if (message.content === 'ping') {
     	message.channel.send('pong');
   	}
