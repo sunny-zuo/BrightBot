@@ -1,0 +1,2 @@
+# BrightBot
+Discord bot
