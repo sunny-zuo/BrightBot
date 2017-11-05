@@ -25,7 +25,7 @@ client.on('message', message => {
             console.log("mentions brightbot");
         }
     }
-    if (mentionsBrightBot) {
+    if (mentionsBrightBot && message.author.tag != 'BrightBot#6286') {
         var messageContent;
         
         messageSplit.splice(brightMentionNum, 1);
