@@ -29,7 +29,7 @@ client.on('message', message => {
             console.log(response.output);
             message.channel.send(response.output).catch(console.error);
             message.channel.stopTyping();
-            },
+            }, Math.random() * (1 - 3) + 1 * 1000);
         });
     }
         
