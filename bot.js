@@ -16,14 +16,20 @@ client.on('ready', () => {
 client.on('message', message => {
     var messageSplit = message.content.split(" ");
     var mentionsBrightBot = false;
+    var brightMentionNum;
     for (var i = 0; i < messageSplit.length; i++) {
-        if (messageSplit[i] === 'BrightBot,' || messageSplit[i] === 'BrightBot' || messageSplit[i] === 'BrightBot!' || messageSplit[i] === 'BrightBot.') {
+        if (messageSplit[i] === 'BrightBot,' || messageSplit[i] === 'BrightBot' || messageSplit[i] === 'BrightBot!' || messageSplit[i] === 'BrightBot.' || messageSplit[i] === 'BrightBot?') {
             mentionsBrightBot = true;
+            brightMentionNum = i;
             console.log("mentions brightbot");
         }
     }
     if (mentionsBrightBot) {
-        clbot.write(message.content, (response) => {
+        var messageContent;
+        
+        messageSplit.splice(brightMentionNum, 1);
+        messageContent = messageSplit.join(" ");
+        clbot.write(messageContent, (response) => {
             message.channel.startTyping();
             setTimeout(() => {
             console.log(response.output);
