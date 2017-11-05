@@ -10,6 +10,7 @@ clbot.configure({botapi: process.env.CLEVER_TOKEN});
 //Causes bot to start reacting to messages after ready is given
 client.on('ready', () => {
     console.log('I am ready!');
+    bot.user.setGame('-help')
 });
 
 //Event listener for messages
@@ -42,6 +43,9 @@ client.on('message', message => {
     if (message.content === 'ping') {
     	message.channel.send('pong');
   	}
+    if (message.content === '-help') {
+        message.channel.send('Talk to me! Just use BrightBot in your message and I will respond!')
+    }
 });
 
 // Token of the bot from Heroku
