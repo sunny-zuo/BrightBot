@@ -15,11 +15,24 @@ client.on('ready', () => {
 //Event listener for messages
 client.on('message', message => {
     var messageSplit = message.content.split(" ");
+    var mentionsBrightBot = false;
     for (var i = 0; i < messageSplit.length; i++) {
+        if (messageSplit[i] === 'BrightBot,' || messageSplit[i] === 'BrightBot' || messageSplit[i] === 'BrightBot!' || messageSplit[i] === 'BrightBot.') {
+            mentionsBrightBot = true;
+        }
+    }
+    if (mentionsBrightBot) {
+        clbot.write(message.content, (response) => {
+        message.channel.startTyping();
+        setTimeout(() => {
+            message.channel.send(response.output).catch(console.error);
+            message.channel.stopTyping();
+        },
+    });
         
     }
-    if (message.content === 'Hi BrightBot!') {
-    	message.channel.send('Hi' + message.author);
+    if (message.content === 'ping') {
+    	message.channel.send('pong');
   	}
 });
 
