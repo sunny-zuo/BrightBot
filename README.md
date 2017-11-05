@@ -1,2 +1,2 @@
 # BrightBot
-BrightBot is a discord bot created using node.js and is intended to be ran using herokuapp to host it.
+BrightBot is a discord bot with CleverBot integration, and is made using node.js. The bot is intended to run on herokuapp.
