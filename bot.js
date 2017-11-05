@@ -1,6 +1,6 @@
 //Import the discord.js module
 const Discord = require('discord.js');
-const Cleverbot = require("cleverbot-node");
+const Cleverbot = require('cleverbot-node');
 //Creates instance of discord client
 const client = new Discord.Client();
 
@@ -19,12 +19,14 @@ client.on('message', message => {
     for (var i = 0; i < messageSplit.length; i++) {
         if (messageSplit[i] === 'BrightBot,' || messageSplit[i] === 'BrightBot' || messageSplit[i] === 'BrightBot!' || messageSplit[i] === 'BrightBot.') {
             mentionsBrightBot = true;
+            console.log("mentions brightbot");
         }
     }
     if (mentionsBrightBot) {
         clbot.write(message.content, (response) => {
         message.channel.startTyping();
         setTimeout(() => {
+            console.log(response.output);
             message.channel.send(response.output).catch(console.error);
             message.channel.stopTyping();
         },
