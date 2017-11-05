@@ -10,7 +10,7 @@ clbot.configure({botapi: process.env.CLEVER_TOKEN});
 //Causes bot to start reacting to messages after ready is given
 client.on('ready', () => {
     console.log('I am ready!');
-    client.user.setGame('-help')
+    client.user.setStatus('-help')
 });
 
 //Event listener for messages
