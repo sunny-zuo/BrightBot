@@ -25,6 +25,7 @@ client.on('message', message => {
             console.log("mentions brightbot");
         }
     }
+    console.log(message.author.tag);
     if (mentionsBrightBot && message.author.tag != 'BrightBot#6286') {
         var messageContent;
         
