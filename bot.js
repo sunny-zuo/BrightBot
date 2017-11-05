@@ -10,8 +10,8 @@ client.on('ready', () => {
 
 //Event listener for messages
 client.on('message', message => {
-    if (message.content === 'ping') {
-    	message.reply('pong');
+    if (message.content === 'Hi BrightBot!') {
+    	message.channel.send('Hi' + message.author);
   	}
 });
 
