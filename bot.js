@@ -32,13 +32,14 @@ client.on('message', message => {
         
         messageSplit.splice(brightMentionNum, 1); //removes the part where trigger text was mentioned so the cleverbot api doesn't get confused
         messageContent = messageSplit.join(" "); //joins the message split array with a space as a seperator for a proper sentence
+        console.log(messageContent);
         cleverbot.write(messageContent, (response) => {
             message.channel.startTyping(); //shows that the bot is typing in chat
             setTimeout(() => {
             console.log(response.output);
             message.channel.send(response.output).catch(console.error); //sends the response to chat
             message.channel.stopTyping(); //stop showing that the bot is typing
-            }, Math.random() * (1 - 3) + 1 * 1000);
+            }, 2000); //bot will wait 2 seconds before responding to make it appear that it is thinking, can be removed
         });
     }
         
