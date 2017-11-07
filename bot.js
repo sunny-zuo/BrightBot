@@ -1,42 +1,43 @@
-//Import the discord.js module
+//Import the discord.js and cleverbot module
 const Discord = require('discord.js');
 const Cleverbot = require('cleverbot-node');
 //Creates instance of discord client
 const client = new Discord.Client();
 
-const clbot = new Cleverbot;
-clbot.configure({botapi: process.env.CLEVER_TOKEN});
+const cleverbot = new Cleverbot; //declares cleverbot as an instance of Cleverbot
+cleverbot.configure({botapi: process.env.CLEVER_TOKEN}); //token for cleverbot api
 
 //Causes bot to start reacting to messages after ready is given
 client.on('ready', () => {
     console.log('I am ready!');
-    client.user.setGame('-help')
+    client.user.setGame('-help') //once ready, set's game status to -help so people can know the commands
 });
 
 //Event listener for messages
 client.on('message', message => {
-    var messageSplit = message.content.split(" ");
-    var mentionsBrightBot = false;
-    var brightMentionNum;
-    for (var i = 0; i < messageSplit.length; i++) {
+    var messageSplit = message.content.split(" "); //splits the message with a space as the seperator into an array
+    var mentionsBrightBot = false; //bool whether the bot was mentioned in the message
+    var brightMentionNum; //the case where the bot was mentioned
+    for (var i = 0; i < messageSplit.length; i++) { //for loop that runs the length of the message array
         if (messageSplit[i] === 'BrightBot,' || messageSplit[i] === 'BrightBot' || messageSplit[i] === 'BrightBot!' || messageSplit[i] === 'BrightBot.' || messageSplit[i] === 'BrightBot?') {
-            mentionsBrightBot = true;
-            brightMentionNum = i;
+           //for above, if the message contains any of the phrases listed
+            mentionsBrightBot = true; //set the mention status to true
+            brightMentionNum = i; //remember where it was mentioned
             console.log("mentions brightbot");
         }
     }
     //console.log(message.author.tag);
     if (mentionsBrightBot && message.author.tag != 'BrightBot#6286') {
-        var messageContent;
+        var messageContent; //variable to keep the message content
         
-        messageSplit.splice(brightMentionNum, 1);
-        messageContent = messageSplit.join(" ");
-        clbot.write(messageContent, (response) => {
-            message.channel.startTyping();
+        messageSplit.splice(brightMentionNum, 1); //removes the part where trigger text was mentioned so the cleverbot api doesn't get confused
+        messageContent = messageSplit.join(" "); //joins the message split array with a space as a seperator for a proper sentence
+        cleverbot.write(messageContent, (response) => {
+            message.channel.startTyping(); //shows that the bot is typing in chat
             setTimeout(() => {
             console.log(response.output);
-            message.channel.send(response.output).catch(console.error);
-            message.channel.stopTyping();
+            message.channel.send(response.output).catch(console.error); //sends the response to chat
+            message.channel.stopTyping(); //stop showing that the bot is typing
             }, Math.random() * (1 - 3) + 1 * 1000);
         });
     }
@@ -45,9 +46,8 @@ client.on('message', message => {
     	message.channel.send('pong');
   	}
     if (message.content === '-help') {
-        message.channel.send('Talk to me! Just use BrightBot in your message and I will respond!')
+        message.channel.send('Talk to me! Just use BrightBot (with correct capitalization) in your message and I will respond!')
     }
 });
 
-// Token of the bot from Heroku
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN); //token of the bot
