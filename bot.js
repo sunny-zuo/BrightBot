@@ -51,4 +51,4 @@ client.on('message', message => {
     }
 });
 
-client.login(process.env.BOT_TOKEN); //token of the bot, set from heroku. If you don't plan on using heroku replace the text in the brackets with your bot token
+client.login(process.env.BOT_TOKEN); //token of the bot that is set from heroku. If you don't plan on using heroku replace the text in the brackets with your bot token
