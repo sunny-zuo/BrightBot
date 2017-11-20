@@ -26,7 +26,7 @@ client.on('message', message => {
             console.log("mentions brightbot");
         }
     }
-    if (!mentionsBrightBot && messageSplit[0] = "-say") {
+    if (!mentionsBrightBot && messageSplit[0] == "-say") {
         var messageContent;
         messageSplit.splice(0, 1);
         messageContent = messageSplit.join(" ");
