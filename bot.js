@@ -26,6 +26,12 @@ client.on('message', message => {
             console.log("mentions brightbot");
         }
     }
+    if (!mentionsBrightBot && messageSplit[0] = "-say") {
+        var messageContent;
+        messageSplit.splice(0, 1);
+        messageContent = messageSplit.join(" ");
+        message.channel.send(messageContent);
+    }
     //console.log(message.author.tag);
     if (mentionsBrightBot && message.author.tag != 'BrightBot#6286') {
         var messageContent; //variable to keep the message content
