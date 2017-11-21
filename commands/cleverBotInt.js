@@ -1,6 +1,6 @@
 const Cleverbot = require('cleverbot-node');
-
 const cleverbot = new Cleverbot; //declares cleverbot as an instance of Cleverbot
+
 cleverbot.configure({botapi: process.env.CLEVER_TOKEN}); //token for cleverbot api
 
 exports.run = (client, message, messageContent) => {
@@ -14,6 +14,7 @@ exports.run = (client, message, messageContent) => {
         
         	messageSplit.splice(brightMentionNum, 1); //removes the part where trigger text was mentioned so the cleverbot api doesn't get confused
         	messageCleaned = messageSplit.join(" "); //joins the message split array with a space as a seperator for a proper sentence
+        	console.log(messageCleaned);
         	cleverbot.write(messageCleaned, (response) => {
             message.channel.startTyping(); //shows that the bot is typing in chat
             setTimeout(() => {
