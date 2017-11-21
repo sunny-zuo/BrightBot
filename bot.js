@@ -34,7 +34,7 @@ client.on("message", message => {
   	}
   	else {
   		let cleverbotCommand = require(`./commands/cleverBotInt.js`);
-  		cleverBotCommand.run(client, message, message.content);
+  		cleverbotCommand.run(client, message);
   	}
   }
 
