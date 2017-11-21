@@ -1,3 +1,3 @@
-exports.run = (client, message, messageContent) => {
-	console.log(messageContent)
+exports.run = (client, message, message.content) => {
+	console.log("hello");
 }
