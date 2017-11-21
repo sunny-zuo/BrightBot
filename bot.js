@@ -1,14 +1,9 @@
-//Import the discord.js and cleverbot module
+//Import needed modules
 const Discord = require('discord.js');
-const Cleverbot = require('cleverbot-node');
 const fs = require('fs');
 
 //Creates instance of discord client
 const client = new Discord.Client();
-
-const cleverbot = new Cleverbot; //declares cleverbot as an instance of Cleverbot
-cleverbot.configure({botapi: process.env.CLEVER_TOKEN}); //token for cleverbot api
-
 const prefix = "-";
 
 //Causes bot to start reacting to messages after ready is given
