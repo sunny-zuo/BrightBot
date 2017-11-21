@@ -23,9 +23,7 @@ exports.run = (client, message, messageContent) => {
             message.channel.stopTyping(); //stop showing that the bot is typing
             }, 2000); //bot will wait 2 seconds before responding to make it appear that it is thinking, can be removed
 			});
+			i = messageSplit.length;
         }
-        else {
-        	return;
-        }
-}
+	}
 }
