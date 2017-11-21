@@ -28,7 +28,7 @@ fs.readdir("./commands/", (err, files) => {
 
 client.on("message", message => {
   if (message.author.bot) return;
-  if(message.content.indexOf(config.prefix) !== 0) {
+  if(message.content.indexOf(prefix) !== 0) {
   	if (message.content.indexOf('BrightBot') == 0 && message.content.indexOf('BrightBot.') == 0 && message.content.indexOf('BrightBot?') == 0 && message.content.indexOf('BrightBot!') == 0 && message.content.indexOf('BrightBot,') == 0) {
   		return;
   	}
@@ -38,7 +38,7 @@ client.on("message", message => {
   	}
   }
 
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
   try {
