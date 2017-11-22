@@ -39,7 +39,7 @@ client.on("message", message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   console.log(command);
-  if (commandList.indexOf(command) != 0) {
+  if (commandList.indexOf(command) !== 0) {
   	try {
     	let commandFile = require(`./commands/${command}.js`);
     	commandFile.run(client, message, args);
