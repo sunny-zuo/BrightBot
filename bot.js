@@ -6,6 +6,8 @@ const fs = require('fs');
 const client = new Discord.Client();
 const prefix = "-";
 
+const commandList = ['help', 'ping', 'say']
+
 //Causes bot to start reacting to messages after ready is given
 client.on('ready', () => {
     console.log('I am ready!');
@@ -36,12 +38,16 @@ client.on("message", message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-
-  try {
-    let commandFile = require(`./commands/${command}.js`);
-    commandFile.run(client, message, args);
-  } catch (err) {
-    console.error(err);
+  if (commandList.indexOf(command) != 0) {
+  	try {
+    	let commandFile = require(`./commands/${command}.js`);
+    	commandFile.run(client, message, args);
+  	} catch (err) {
+    	console.error(err);
+ 	}
+  }
+  else {
+  	return;
   }
 });
 
