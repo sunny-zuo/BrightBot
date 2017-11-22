@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-	var helpMessage = ({embed: {
+	message.channel.send({embed: {
 		"color": 3447003,
 		"title": "__Commands__",
 		"description": "Here is a list of all the commands the bot will respond to.",
@@ -21,6 +21,5 @@ exports.run = (client, message, args) => {
       		"icon_url": "https://image.flaticon.com/icons/svg/25/25231.svg",
       		"text": "Developed by darkstar#7270. View my code: https://github.com/sunny-zuo/BrightBot"
     	}
-	}})
-	message.channel.send(helpMessage).catch(console.error);
+	}});
 }
