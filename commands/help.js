@@ -8,5 +8,5 @@ exports.run = (client, message, args) => {
 	messageArray.push("I'm a bot developed by darkstar#7270. Find me [on Github!](https://github.com/sunny-zuo/BrightBot)")
 	messageArray.push("```")
 
-	message.channel.send(messageArray)
+	message.channel.send(messageArray).catch(console.error);
 }
