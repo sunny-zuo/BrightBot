@@ -1,4 +1,26 @@
 exports.run = (client, message, args) => {
-	var helpMessage = ("```\n **Commands** \n -help : Lists all the commands \n -say : Bot will say what you tell it to say \n You can talk to me! Just mention BrightBot with exact capitalization in your message and I'll respond. \n I'm a bot developed by darkstar#7270. Find me [on Github!](https://github.com/sunny-zuo/BrightBot) \n ```")
+	var helpMessage = ({embed: {
+		"color": 3447003,
+		"title": "__Commands__",
+		"description": "Here is a list of all the commands the bot will respond to.",
+		"fields": [{
+			"name": "-help",
+			"value": "Lists commands.",
+			"inline": true
+		}, 
+		{
+			"name": "-say",
+			"value": "Bot will say what it is given.",
+			"inline": true
+		},
+		{
+			"name": "-dice",
+			"value": "Roll dice. Use format 1d6 where 1 is number of dice, and 6 is the highest number."
+		}],
+    	"footer": {
+      		"icon_url": "https://image.flaticon.com/icons/svg/25/25231.svg",
+      		"text": "Developed by darkstar#7270. View my code: https://github.com/sunny-zuo/BrightBot"
+    	}
+	}})
 	message.channel.send(helpMessage).catch(console.error);
 }
