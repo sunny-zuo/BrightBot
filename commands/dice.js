@@ -7,11 +7,11 @@ exports.run = (client, message, argsArray) => {
 		rollInfo.splice(0,2);
 		rollMax = rollInfo.join("");
 		console.log(rollMax);
-		for (var i = 1; i < rollCount; i++) {
+		for (var i = 0; i < rollCount; i++) {
 			var roll;
 			roll = Math.floor(Math.random() * rollMax) + 1;
 			console.log("Roll " + i + ": " + roll);
-			message.channel.send("Roll " + i + ":" + roll).catch(console.error);
+			message.channel.send("Roll " + i + " is " + roll).catch(console.error);
 		}
 	}
 	else {
