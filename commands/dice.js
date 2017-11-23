@@ -3,11 +3,10 @@ exports.run = (client, message, argsArray) => {
 	var rollInfo = args.split("");
 	var rollCount = rollInfo[0];
 	var rollMax;
-	console.log("hello1");
 	if (rollInfo[1] === "d") {
-		console.log("hello2")
 		rollInfo.splice(0,2);
 		rollMax = rollInfo.join("");
+		console.log(rollMax);
 		for (var i = 1; i < rollCount; i++) {
 			var roll;
 			roll = Math.floor(Math.random() * rollMax) + 1;
