@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 exports.run = (client, message, args) => {
 	const embed = new Discord.RichEmbed()
 		embed.setTitle("__Commands__")
