@@ -9,7 +9,7 @@ exports.run = (client, message, argsArray) => {
 		for (var i = 0; i < rollCount; i++) {
 			var roll;
 			roll = Math.floor(Math.random() * rollMax) + 1;
-			message.channel.send("Roll " + i + " is " + roll).catch(console.error);
+			message.channel.send("Roll " + (i+1) + " is " + roll).catch(console.error);
 		}
 	}
 	else {

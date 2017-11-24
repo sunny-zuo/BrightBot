@@ -6,7 +6,7 @@ const fs = require('fs');
 const client = new Discord.Client();
 const prefix = "-";
 
-const commandList = ['help', 'ping', 'say']
+const commandList = ['help', 'ping', 'say', 'dice']
 
 //Causes bot to start reacting to messages after ready is given
 client.on('ready', () => {
