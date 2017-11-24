@@ -1,3 +1,3 @@
 exports.run = (client, message, args) => {
-	message.channel.send(message.content).catch(console.error);
+	message.channel.send(args).catch(console.error);
 }

@@ -9,5 +9,6 @@ exports.run = (client, message, args) => {
 		embed.addField("-help", "Lists commands.", true)
 		embed.addField("-say", "Bot will say what it is given", true)
 		embed.addField("-dice", "Roll dice. Use format 1d6 where 1 is the number of dice rolled, and 6 is the max number (1-6). Cannot roll more than 9 dice at a time.")
-	message.channel.send({embed});
+	message.channel.send({embed}).catch(console.error);
+	trace("embed sent")
 }
