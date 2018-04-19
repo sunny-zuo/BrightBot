@@ -25,6 +25,9 @@ fs.readdir("./commands/", (err, files) => {
 
 client.on("message", message => {
   if (message.author.bot) return;
+  if (message.content == "No") {
+	  message.channel.send("Yes").catch(console.error);
+  }
   if(message.content.indexOf(prefix) !== 0) {
   	if (message.content.indexOf('BrightBot') == 0 && message.content.indexOf('BrightBot.') == 0 && message.content.indexOf('BrightBot?') == 0 && message.content.indexOf('BrightBot!') == 0 && message.content.indexOf('BrightBot,') == 0) {
   		return;
